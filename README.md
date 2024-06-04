@@ -1,2 +1,2 @@
 # chat-app-golang
-Chat app with vue js and go lang
+Chat app with Vue.js and go lang
