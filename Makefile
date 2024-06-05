@@ -1,3 +1,5 @@
+include .env
+
 new-migrate:
 	@echo "Creating new migration..."
 	@sql-migrate new -config=configs/dbconfig.yml -env=development $(name)
@@ -7,3 +9,6 @@ up-migrate:
 down-migrate:
 	@echo "Running down migration..."
 	@sql-migrate down -limit=$(limit) -config=configs/dbconfig.yml -env=development
+run:
+	@echo "Running application..."
+	@go run cmd/main.go

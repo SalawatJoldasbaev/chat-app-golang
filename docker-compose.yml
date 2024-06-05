@@ -1,0 +1,50 @@
+services:
+  database:
+    image: postgres:15.5
+    container_name: 'database'
+    restart: always
+    tty: true
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - database:/var/lib/postgresql/data
+    networks:
+      - app-network
+#  pgadmin:
+#    container_name: 'pgadmin'
+#    image: elestio/pgadmin:latest
+#    restart: always
+#    environment:
+#      PGADMIN_DEFAULT_EMAIL: "admin@admin.dev"
+#      PGADMIN_DEFAULT_PASSWORD: "adminPassword123"
+#      PGADMIN_LISTEN_PORT: 8080
+#      PGADMIN_SERVER_JSON_FILE: servers.json
+#    volumes:
+#      - ./docker/pgadmin/servers.json:/pgadmin4/servers.json
+#      - ./docker/pgadmin/password:/pgadmin4/password
+#    ports:
+#      - "8080:8080"
+#    networks:
+#      - app-network
+#  app:
+#    container_name: 'app'
+#    env_file:
+#      - .env
+#    build:
+#      context: .
+#      dockerfile: ./docker/golang/Dockerfile
+#    ports:
+#      - "8000:8000"
+#    networks:
+#      - app-network
+#    depends_on:
+#      - database
+networks:
+  app-network:
+    driver: bridge
+volumes:
+  database:

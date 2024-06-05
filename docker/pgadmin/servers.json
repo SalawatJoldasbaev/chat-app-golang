@@ -1,0 +1,14 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "localhost n2",
+      "Group": "Servers",
+      "Host": "database",
+      "Port": 5432,
+      "MaintenanceDB": "starter",
+      "Username": "salawat",
+      "PassFile": "/pgadmin4/password",
+      "SSLMode": "prefer"
+    }
+  }
+}

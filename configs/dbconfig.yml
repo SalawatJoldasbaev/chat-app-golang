@@ -1,5 +1,5 @@
 development:
   dialect: postgres
-  datasource: host=localhost dbname=chat-app user=${DB_USER} password=${DB_PASSWORD} sslmode=disable
+  datasource: host=localhost port=5432 dbname=chat-app user=salawat password=123456 sslmode=disable
   dir: internal/database/migrations
   table: migrations
